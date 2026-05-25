@@ -1,0 +1,35 @@
+{
+  "name": "smd",
+  "version": "1.0.0",
+  "description": "System Manager Detector",
+  "main": "src/index.ts",
+  "bin": {
+    "smd": "./dist/smd.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "scripts": {
+    "start": "bun run bin/smd.ts",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit",
+    "build": "node scripts/build.js",
+    "compile": "bun build --compile bin/smd.ts --outfile bin/smd",
+    "compile:linux": "bun build --compile --target=bun-linux-x64 bin/smd.ts --outfile dist/smd-linux",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "commander": "^12.0.0",
+    "execa": "^9.1.0",
+    "pino": "^9.1.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.12",
+    "bun-types": "^1.3.14",
+    "esbuild": "^0.28.0",
+    "pino-pretty": "^11.1.0",
+    "typescript": "^5.4.5"
+  }
+}

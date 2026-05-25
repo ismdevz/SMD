@@ -1,0 +1,8 @@
+{
+  "debian": { "primary": "apt", "fallback": [] },
+  "ubuntu": { "primary": "apt", "fallback": [] },
+  "fedora": { "primary": "dnf", "fallback": ["yum"] },
+  "arch": { "primary": "pacman", "fallback": [] },
+  "alpine": { "primary": "apk", "fallback": [] },
+  "opensuse": { "primary": "zypper", "fallback": [] }
+}

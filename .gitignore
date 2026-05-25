@@ -1,0 +1,34 @@
+# Dependency directories
+node_modules/
+
+# Bun lockfile
+# bun.lockb (optional to ignore, but we keep it or ignore it, let's keep it in git if needed, but ignore node_modules)
+
+# Build outputs
+dist/
+build/
+
+# Logs
+logs/*.log
+*.log
+
+# Generated Reports
+reports/*.json
+reports/*.txt
+reports/history/
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Cache/Storage
+storage/cache/*
+storage/backups/*
+storage/database/*
+!storage/cache/.gitkeep
+!storage/backups/.gitkeep
+!storage/database/.gitkeep
+
+# Environment variables
+.env
+.env.local

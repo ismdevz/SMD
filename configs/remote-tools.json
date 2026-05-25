@@ -1,0 +1,52 @@
+[
+  {
+    "id": "nomachine",
+    "name": "NoMachine",
+    "packages": {
+      "apt": ["nxserver"],
+      "dnf": ["nxserver"],
+      "pacman": ["nomachine"],
+      "apk": []
+    }
+  },
+  {
+    "id": "novnc",
+    "name": "noVNC",
+    "packages": {
+      "apt": ["novnc", "websockify"],
+      "dnf": ["novnc", "python3-websockify"],
+      "pacman": ["novnc", "python-websockify"],
+      "apk": ["novnc"]
+    }
+  },
+  {
+    "id": "tigervnc",
+    "name": "TigerVNC",
+    "packages": {
+      "apt": ["tigervnc-standalone-server", "tigervnc-common"],
+      "dnf": ["tigervnc-server"],
+      "pacman": ["tigervnc"],
+      "apk": ["tigervnc"]
+    }
+  },
+  {
+    "id": "remmina",
+    "name": "Remmina",
+    "packages": {
+      "apt": ["remmina", "remmina-plugin-rdp", "remmina-plugin-vnc"],
+      "dnf": ["remmina"],
+      "pacman": ["remmina"],
+      "apk": ["remmina"]
+    }
+  },
+  {
+    "id": "xrdp",
+    "name": "XRDP",
+    "packages": {
+      "apt": ["xrdp", "xorgxrdp"],
+      "dnf": ["xrdp"],
+      "pacman": ["xrdp"],
+      "apk": ["xrdp"]
+    }
+  }
+]

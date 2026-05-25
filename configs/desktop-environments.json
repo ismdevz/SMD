@@ -1,0 +1,57 @@
+[
+  {
+    "id": "xfce",
+    "name": "XFCE",
+    "packages": {
+      "apt": ["xfce4", "xfce4-goodies"],
+      "dnf": ["@xfce-desktop-environment"],
+      "pacman": ["xfce4", "xfce4-goodies"],
+      "apk": ["xfce4", "xfce4-desktop-mail", "xfce4-screensaver"],
+      "zypper": ["-t", "pattern", "xfce"]
+    }
+  },
+  {
+    "id": "mate",
+    "name": "MATE",
+    "packages": {
+      "apt": ["mate-desktop-environment-core", "mate-desktop-environment-extras"],
+      "dnf": ["@mate-desktop"],
+      "pacman": ["mate", "mate-extra"],
+      "apk": ["mate-desktop", "mate-control-center"],
+      "zypper": ["-t", "pattern", "mate"]
+    }
+  },
+  {
+    "id": "gnome",
+    "name": "GNOME",
+    "packages": {
+      "apt": ["gnome-core", "gdm3"],
+      "dnf": ["@gnome-desktop"],
+      "pacman": ["gnome", "gnome-extra"],
+      "apk": ["gnome"],
+      "zypper": ["-t", "pattern", "gnome"]
+    }
+  },
+  {
+    "id": "kde",
+    "name": "KDE Plasma",
+    "packages": {
+      "apt": ["kde-standard", "sddm"],
+      "dnf": ["@kde-desktop"],
+      "pacman": ["plasma", "kde-applications"],
+      "apk": ["plasma-desktop"],
+      "zypper": ["-t", "pattern", "kde"]
+    }
+  },
+  {
+    "id": "cinnamon",
+    "name": "Cinnamon",
+    "packages": {
+      "apt": ["cinnamon-desktop-environment"],
+      "dnf": ["@cinnamon-desktop"],
+      "pacman": ["cinnamon"],
+      "apk": ["cinnamon"],
+      "zypper": ["cinnamon"]
+    }
+  }
+]

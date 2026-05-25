@@ -1,0 +1,10 @@
+[
+  { "name": "ssh", "description": "Secure Shell Daemon" },
+  { "name": "docker", "description": "Docker Container Daemon" },
+  { "name": "xrdp", "description": "XRDP Remote Desktop Server" },
+  { "name": "nxserver", "description": "NoMachine Server Daemon" },
+  { "name": "nginx", "description": "Nginx HTTP and reverse proxy server" },
+  { "name": "apache2", "description": "Apache Web Server" },
+  { "name": "ufw", "description": "Uncomplicated Firewall Daemon" },
+  { "name": "firewalld", "description": "FirewallD firewall daemon" }
+]

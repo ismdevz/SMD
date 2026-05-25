@@ -1,0 +1,8 @@
+[
+  { "id": "ubuntu", "name": "Ubuntu", "family": "debian" },
+  { "id": "debian", "name": "Debian", "family": "debian" },
+  { "id": "fedora", "name": "Fedora", "family": "fedora" },
+  { "id": "arch", "name": "Arch Linux", "family": "arch" },
+  { "id": "alpine", "name": "Alpine Linux", "family": "alpine" },
+  { "id": "opensuse", "name": "openSUSE", "family": "opensuse" }
+]
