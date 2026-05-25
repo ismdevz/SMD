@@ -32,3 +32,10 @@ storage/database/*
 # Environment variables
 .env
 .env.local
+
+# Executable binaries
+bin/smd
+bin/smd-bin
+bin/smd-linux
+dist/smd-linux
+
