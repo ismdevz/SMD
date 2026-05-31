@@ -56,7 +56,7 @@ if [ ! -f "$XORG_CONF" ] && [ ! -f /etc/X11/xorg.conf.d/ ]; then
 # This allows virtual displays for VNC/NoMachine to work correctly
 Section "Device"
   Identifier  "VirtualDevice"
-  Driver      "modesetting"
+  Driver      "dummy"
   Option      "SWCursor"  "true"
 EndSection
 
