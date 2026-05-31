@@ -25,27 +25,6 @@ export async function detectDesktops(): Promise<string[]> {
     }
   }
 
-  // Cross-reference with XDG environment variables for active session DEs
-  const current = process.env.XDG_CURRENT_DESKTOP?.toLowerCase();
-  if (current) {
-    let matchedName: string | null = null;
-    if (current.includes('xfce')) {
-      matchedName = 'xfce';
-    } else if (current.includes('mate')) {
-      matchedName = 'mate';
-    } else if (current.includes('gnome')) {
-      matchedName = 'gnome';
-    } else if (current.includes('kde') || current.includes('plasma')) {
-      matchedName = 'kde';
-    } else if (current.includes('cinnamon')) {
-      matchedName = 'cinnamon';
-    }
-
-    if (matchedName && !installed.includes(matchedName)) {
-      installed.push(matchedName);
-    }
-  }
-
   return installed;
 }
 

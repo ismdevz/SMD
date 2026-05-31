@@ -3,8 +3,8 @@
     "id": "nomachine",
     "name": "NoMachine",
     "packages": {
-      "apt": ["nxserver"],
-      "dnf": ["nxserver"],
+      "apt": ["nomachine"],
+      "dnf": ["nomachine"],
       "pacman": ["nomachine"],
       "apk": []
     }

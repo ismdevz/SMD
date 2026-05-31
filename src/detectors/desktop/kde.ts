@@ -2,12 +2,10 @@ import fs from 'fs';
 import type { DesktopInfo } from '../../types/desktop.ts';
 
 export async function detectKde(): Promise<DesktopInfo | null> {
-  const paths = [
-    '/usr/bin/plasmashell',
-    '/usr/bin/startplasma-x11',
-    '/usr/bin/startplasma-wayland'
-  ];
-  const installed = paths.some(p => fs.existsSync(p));
+  const installed = fs.existsSync('/usr/bin/plasmashell') ||
+                    fs.existsSync('/usr/bin/startplasma-x11') ||
+                    fs.existsSync('/usr/bin/startkde') ||
+                    fs.existsSync('/usr/share/xsessions/plasma.desktop');
 
   if (installed) {
     return {

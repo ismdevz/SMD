@@ -4,7 +4,7 @@ import { execCommand } from '../../core/shell.ts';
  * Installs packages using apt-get.
  */
 export async function install(packages: string[], options: { dryRun?: boolean } = {}): Promise<boolean> {
-  const res = await execCommand('apt-get', ['install', '-y', ...packages], { sudo: true, dryRun: options.dryRun });
+  const res = await execCommand('apt-get', ['install', '-y', '--no-install-recommends', ...packages], { sudo: true, dryRun: options.dryRun });
   return res.success;
 }
 

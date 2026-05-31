@@ -1,11 +1,12 @@
 import path from 'path';
 import fs from 'fs';
+import os from 'os';
 import { detectSystemDetails } from '../detectors/index.ts';
 import { writeFile, writeJson } from '../utils/file.ts';
 import { logger } from './logger.ts';
 import type { SystemDetails } from '../types/system.ts';
 
-const REPORTS_DIR = path.resolve(process.cwd(), 'reports');
+const REPORTS_DIR = path.join(os.homedir(), '.smd', 'reports');
 const HISTORY_DIR = path.join(REPORTS_DIR, 'history');
 
 /**

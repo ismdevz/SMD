@@ -3,55 +3,99 @@
     "id": "xfce",
     "name": "XFCE",
     "packages": {
-      "apt": ["xfce4", "xfce4-goodies"],
-      "dnf": ["@xfce-desktop-environment"],
-      "pacman": ["xfce4", "xfce4-goodies"],
-      "apk": ["xfce4", "xfce4-desktop-mail", "xfce4-screensaver"],
-      "zypper": ["-t", "pattern", "xfce"]
+      "apt": [
+        "xfce4",
+        "xfce4-goodies",
+        "xfce4-session",
+        "xfdesktop4",
+        "xorg",
+        "xserver-xorg",
+        "xserver-xorg-video-dummy",
+        "xinit",
+        "dbus-x11",
+        "policykit-1-gnome"
+      ],
+      "dnf": ["@xfce-desktop-environment", "xorg-x11-server-Xorg", "xorg-x11-xinit", "dbus-x11"],
+      "pacman": ["xfce4", "xfce4-goodies", "xorg-server", "xorg-xinit", "dbus"],
+      "apk": ["xfce4", "xfce4-desktop-mail", "xfce4-screensaver", "xorg-server", "xinit", "dbus"],
+      "zypper": ["-t", "pattern", "xfce", "xorg-x11-server", "xinit", "dbus-1"]
     }
   },
   {
     "id": "mate",
     "name": "MATE",
     "packages": {
-      "apt": ["mate-desktop-environment-core", "mate-desktop-environment-extras"],
-      "dnf": ["@mate-desktop"],
-      "pacman": ["mate", "mate-extra"],
-      "apk": ["mate-desktop", "mate-control-center"],
-      "zypper": ["-t", "pattern", "mate"]
+      "apt": [
+        "mate-desktop-environment",
+        "xorg",
+        "xserver-xorg",
+        "xserver-xorg-video-dummy",
+        "xinit",
+        "dbus-x11"
+      ],
+      "dnf": ["@mate-desktop", "xorg-x11-server-Xorg", "xorg-x11-xinit", "dbus-x11"],
+      "pacman": ["mate", "mate-extra", "xorg-server", "xorg-xinit", "dbus"],
+      "apk": ["mate-desktop", "mate-control-center", "xorg-server", "xinit", "dbus"],
+      "zypper": ["-t", "pattern", "mate", "xorg-x11-server", "xinit", "dbus-1"]
     }
   },
   {
     "id": "gnome",
     "name": "GNOME",
     "packages": {
-      "apt": ["gnome-core", "gdm3"],
-      "dnf": ["@gnome-desktop"],
-      "pacman": ["gnome", "gnome-extra"],
-      "apk": ["gnome"],
-      "zypper": ["-t", "pattern", "gnome"]
+      "apt": [
+        "gnome",
+        "xorg",
+        "xserver-xorg",
+        "xserver-xorg-video-dummy",
+        "xinit",
+        "dbus-x11"
+      ],
+      "dnf": ["@gnome-desktop", "xorg-x11-server-Xorg", "xorg-x11-xinit", "dbus-x11"],
+      "pacman": ["gnome", "gnome-extra", "xorg-server", "xorg-xinit", "dbus"],
+      "apk": ["gnome", "xorg-server", "xinit", "dbus"],
+      "zypper": ["-t", "pattern", "gnome", "xorg-x11-server", "xinit", "dbus-1"]
     }
   },
   {
     "id": "kde",
     "name": "KDE Plasma",
     "packages": {
-      "apt": ["kde-standard", "sddm"],
-      "dnf": ["@kde-desktop"],
-      "pacman": ["plasma", "kde-applications"],
-      "apk": ["plasma-desktop"],
-      "zypper": ["-t", "pattern", "kde"]
+      "apt": [
+        "kde-standard",
+        "xorg",
+        "xserver-xorg",
+        "xserver-xorg-video-dummy",
+        "xinit",
+        "dbus-x11"
+      ],
+      "dnf": ["@kde-desktop", "xorg-x11-server-Xorg", "xorg-x11-xinit", "dbus-x11"],
+      "pacman": ["plasma", "kde-applications", "xorg-server", "xorg-xinit", "dbus"],
+      "apk": ["plasma-desktop", "xorg-server", "xinit", "dbus"],
+      "zypper": ["-t", "pattern", "kde", "xorg-x11-server", "xinit", "dbus-1"]
     }
   },
   {
     "id": "cinnamon",
     "name": "Cinnamon",
     "packages": {
-      "apt": ["cinnamon-desktop-environment"],
-      "dnf": ["@cinnamon-desktop"],
-      "pacman": ["cinnamon"],
-      "apk": ["cinnamon"],
-      "zypper": ["cinnamon"]
+      "apt": [
+        "cinnamon",
+        "cinnamon-session",
+        "nemo",
+        "gnome-terminal",
+        "cinnamon-control-center",
+        "cinnamon-l10n",
+        "xorg",
+        "xserver-xorg",
+        "xserver-xorg-video-dummy",
+        "xinit",
+        "dbus-x11"
+      ],
+      "dnf": ["@cinnamon-desktop", "xorg-x11-server-Xorg", "xorg-x11-xinit", "dbus-x11"],
+      "pacman": ["cinnamon", "xorg-server", "xorg-xinit", "dbus"],
+      "apk": ["cinnamon", "xorg-server", "xinit", "dbus"],
+      "zypper": ["cinnamon", "xorg-x11-server", "xinit", "dbus-1"]
     }
   }
 ]

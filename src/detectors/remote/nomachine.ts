@@ -2,7 +2,7 @@ import fs from 'fs';
 import type { RemoteToolInfo } from '../../types/remote.ts';
 
 export async function detectNoMachine(): Promise<RemoteToolInfo | null> {
-  const paths = ['/usr/bin/nxserver', '/usr/bin/nxplayer', '/usr/NX', '/etc/NX'];
+  const paths = ['/usr/bin/nxserver', '/usr/NX/bin/nxserver'];
   const installed = paths.some(p => fs.existsSync(p));
 
   if (installed) {

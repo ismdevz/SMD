@@ -1,8 +1,9 @@
 import path from 'path';
 import fs from 'fs';
+import os from 'os';
 import { logger } from './logger.ts';
 
-const CACHE_DIR = path.resolve(process.cwd(), 'storage/cache');
+const CACHE_DIR = path.join(os.homedir(), '.smd', 'cache');
 
 export interface CacheEntry<T> {
   value: T;

@@ -4,7 +4,7 @@ import { detectPackageManager } from '../detectors/package-managers/index.ts';
 import { FirewallManager } from './firewall-manager.ts';
 import { ServiceManager } from './service-manager.ts';
 import { logger } from '../core/logger.ts';
-import { execCommand } from '../core/shell.ts';
+import { execCommand, execShell } from '../core/shell.ts';
 import fs from 'fs';
 import path from 'path';
 
@@ -93,11 +93,33 @@ export class RemoteManager {
   private static async installNoMachine(pm: string, options: { dryRun?: boolean }): Promise<boolean> {
     const arch = process.arch === 'arm64' ? 'arm64' : 'amd64';
     
+    // Dynamically query latest NoMachine package URL from downloads page
+    let downloadUrl = '';
+    const isArm = process.arch === 'arm64';
+    const pageUrl = isArm
+      ? 'https://downloads.nomachine.com/download/?id=30&platform=linux&distro=arm'
+      : 'https://downloads.nomachine.com/download/?id=1&platform=linux';
+
+    logger.info(`Checking latest NoMachine download URL from: ${pageUrl}`);
+    try {
+      const filterArch = isArm ? 'arm64|aarch64' : 'amd64|x86_64';
+      const fileExt = pm === 'apt' ? '\\.deb' : '\\.rpm';
+      
+      const scrapeCmd = `(curl -sL "${pageUrl}" || wget -qO- "${pageUrl}") | grep -oE 'href="https://[^"]+nomachine_[^"]+${fileExt}"' | cut -d'"' -f2 | grep -E "${filterArch}" | head -n1`;
+      const scrapeRes = await execShell(scrapeCmd, { dryRun: options.dryRun });
+      if (scrapeRes.success && scrapeRes.stdout) {
+        downloadUrl = scrapeRes.stdout.trim();
+        logger.info(`Discovered latest NoMachine package URL: ${downloadUrl}`);
+      }
+    } catch (err: any) {
+      logger.warn(`Could not fetch latest NoMachine URL dynamically: ${err.message}. Using fallback.`);
+    }
+
     if (pm === 'apt') {
-      // Download link for debian/ubuntu amd64
-      const version = '8.11.3_4';
-      const debUrl = `https://download.nomachine.com/download/8.11/Linux/nomachine_${version}_${arch}.deb`;
-      const localDebPath = `/tmp/nomachine_${version}_${arch}.deb`;
+      const version = '9.5.7_2';
+      const fallbackUrl = `https://web9001.nomachine.com/download/9.5/Linux/nomachine_${version}_${arch}.deb`;
+      const debUrl = downloadUrl || fallbackUrl;
+      const localDebPath = `/tmp/nomachine_latest_${arch}.deb`;
 
       logger.info(`Downloading NoMachine DEB from ${debUrl}...`);
       const dlRes = await execCommand('wget', ['-O', localDebPath, debUrl], { dryRun: options.dryRun });
@@ -112,9 +134,10 @@ export class RemoteManager {
     } 
     
     if (pm === 'dnf' || pm === 'yum') {
-      const version = '8.11.3_4';
-      const rpmUrl = `https://download.nomachine.com/download/8.11/Linux/nomachine_${version}_x86_64.rpm`;
-      const localRpmPath = `/tmp/nomachine_${version}_x86_64.rpm`;
+      const version = '9.5.7_2';
+      const fallbackUrl = `https://web9001.nomachine.com/download/9.5/Linux/nomachine_${version}_x86_64.rpm`;
+      const rpmUrl = downloadUrl || fallbackUrl;
+      const localRpmPath = `/tmp/nomachine_latest_x86_64.rpm`;
 
       logger.info(`Downloading NoMachine RPM from ${rpmUrl}...`);
       const dlRes = await execCommand('wget', ['-O', localRpmPath, rpmUrl], { dryRun: options.dryRun });
